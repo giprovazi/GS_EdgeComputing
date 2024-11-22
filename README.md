@@ -92,3 +92,9 @@ Quando a umidade atingir mais de 5%, o sistema:
 
 ## Link do Simulador
 https://wokwi.com/projects/415294698509870081
+
+## Integrantes
+- Vitor de Lima Domingues
+- Giovanni Romano Provazi
+- Enzo Galhardo
+- João Pedro Vieira de Morais
