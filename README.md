@@ -1,4 +1,5 @@
 # README - Sistema de Monitoramento de Umidade para Salas de Comando
+
 ## Visão Geral
 Este projeto foi desenvolvido para proteger a sala de comando de uma usina hidrelétrica contra danos causados por infiltração de água. A sala de comando é um componente essencial para o controle e operação da geração de energia, e sua segurança é crucial. O sistema utiliza um Arduino integrado a sensores de umidade, LEDs e um buzzer para detectar condições de risco, emitindo alertas e prevenindo danos aos equipamentos críticos.
 ## Funcionalidades
@@ -38,20 +39,6 @@ Abaixo está o código-fonte básico para o funcionamento do sistema:
 
 ```cpp
 
-Para avisar a central de comando quando o alarme de umidade for acionado, você pode implementar a comunicação com a central usando um dos seguintes métodos, dependendo da infraestrutura disponível na usina e das suas necessidades:
-
-Comunicação Serial: Enviar uma mensagem simples via serial, que pode ser monitorada por um sistema na central.
-Comunicação sem fio: Usar um módulo como ESP8266 ou ESP32 para enviar uma notificação por HTTP (como uma mensagem em um servidor ou API).
-SMS/Email: Usar um módulo GSM (como o SIM800L) ou uma plataforma de email/SMS para enviar notificações.
-Sistema de IoT: Usar uma plataforma como Blynk, ThingSpeak, ou MQTT para enviar notificações em tempo real para a central.
-Vou apresentar um exemplo para cada um desses métodos.
-
-1. Usando Comunicação Serial (Método simples)
-Aqui, a central pode monitorar a saída serial do Arduino. Toda vez que a umidade ultrapassar 5%, o Arduino envia uma mensagem para a central.
-
-Exemplo de Código com Comunicação Serial:
-cpp
-Copiar código
 #include <DHT.h>
 
 #define DHTPIN 5       // Pino onde o DHT22 está conectado
@@ -85,6 +72,7 @@ void loop() {
   if (umidade > 5) {
     digitalWrite(LED, HIGH);
     digitalWrite(BUZZER, HIGH);
+    tone(BUZZER, 1000, 2000);
     // Envia um alerta para a central de comando via serial
     Serial.println("ALERTA: Umidade acima de 5%! A sala de comando pode estar em risco.");
   } else {  // Desativa alertas quando a umidade estiver abaixo de 5%
@@ -103,5 +91,4 @@ Quando a umidade atingir mais de 5%, o sistema:
 - Quando a umidade retornar a menos de 5%, os alertas serão desativados automaticamente.
 
 ## Link do Simulador
-
-
+https://wokwi.com/projects/415294698509870081
