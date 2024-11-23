@@ -1,3 +1,5 @@
+![Projeto simulador wokwi](Gs_wokwi.png) 
+
 # README - Sistema de Monitoramento de Umidade para Salas de Comando
 
 ## Visão Geral
